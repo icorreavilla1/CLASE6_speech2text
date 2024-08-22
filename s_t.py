@@ -24,14 +24,14 @@ image = Image.open('OIG7.jpg')
 st.image(image,width=300)
 with st.sidebar:
     st.subheader("Traductor.")
-    st.write("Presiona el botón, cuando escuches la señal "
+    st.write("Hazle click al botón 'Escuchar'"
                  "habla lo que quieres traducir, luego selecciona"   
                  " la configuración de lenguaje que necesites.")
 
 
 st.write("Toca el Botón y habla lo que quires traducir")
 
-stt_button = Button(label=" Escuchar  🎤", width=300,  height=50)
+stt_button = Button(label=" Escuchar  🎤", width=300,  height=50, fill= 'red')
 
 stt_button.js_on_event("button_click", CustomJS(code="""
     var recognition = new webkitSpeechRecognition();
@@ -73,33 +73,29 @@ if result:
     text = str(result.get("GET_TEXT"))
     in_lang = st.selectbox(
         "Selecciona el lenguaje de Entrada",
-        ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés"),
+        ("Inglés", "Español", "Mandarín", "Japonés", "Francés"),
     )
     if in_lang == "Inglés":
         input_language = "en"
     elif in_lang == "Español":
         input_language = "es"
-    elif in_lang == "Bengali":
-        input_language = "bn"
-    elif in_lang == "Coreano":
-        input_language = "ko"
     elif in_lang == "Mandarín":
         input_language = "zh-cn"
     elif in_lang == "Japonés":
         input_language = "ja"
+    elif in_lang == "Francés":
+        input_language = "fr"
     
     out_lang = st.selectbox(
         "Selecciona el lenguaje de salida",
-        ("Inglés", "Español", "Bengali", "Coreano", "Mandarín", "Japonés"),
+        ("Inglés", "Español", "Mandarín", "Japonés", "Francés"),
     )
     if out_lang == "Inglés":
         output_language = "en"
     elif out_lang == "Español":
         output_language = "es"
-    elif out_lang == "Bengali":
-        output_language = "bn"
-    elif out_lang == "Coreano":
-        output_language = "ko"
+    elif out_lang == "Francés":
+        output_language = "fr"
     elif out_lang == "Mandarín":
         output_language = "zh-cn"
     elif out_lang == "Japonés":
