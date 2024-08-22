@@ -19,7 +19,7 @@ st.title("Traductor de Voz 🗫")
 st.subheader("🗣 Dime lo que quieras tradicr, yo escucho ")
 
 
-image = Image.open('traductorimg.jpg')
+image = Image.open('traductorimg.png')
 
 st.image(image,width=300)
 with st.sidebar:
